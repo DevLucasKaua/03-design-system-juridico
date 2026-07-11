@@ -6,6 +6,7 @@ import { Button } from '../components/Button/Button';
 import { Card } from '../components/Card/Card';
 import { Input } from '../components/Input/Input';
 import { Modal } from '../components/Modal/Modal';
+import { SectionHeader } from '../components/SectionHeader/SectionHeader';
 import { Select } from '../components/Select/Select';
 import { Textarea } from '../components/Textarea/Textarea';
 import { ToastProvider, useToast } from '../components/Toast/Toast';
@@ -68,6 +69,24 @@ describe('a11y (axe-core)', () => {
             <Badge>Geral</Badge>
           </Card.Footer>
         </Card>
+      </main>,
+    );
+    await expectNoViolations(container);
+  });
+
+  it('SectionHeader nos dois tons com hierarquia de headings', async () => {
+    const { container } = render(
+      <main>
+        <SectionHeader
+          as="h1"
+          size="xl"
+          tone="dark"
+          eyebrow="Advocacia imobiliária"
+          title="Comprou na planta?"
+          titleMuted="Você tem direitos."
+          subtitle="Análise inicial gratuita."
+        />
+        <SectionHeader as="h2" title="Como funciona," titleMuted="em três passos" />
       </main>,
     );
     await expectNoViolations(container);

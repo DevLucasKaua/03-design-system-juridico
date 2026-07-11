@@ -33,7 +33,20 @@ Decisões que os números forçaram:
 | verde de sucesso `#1e9e5a` | reprovou (3.45) → token é `#157347` (5.87) |
 | `ink-300` como borda de campo | reprovou (1.98 < 3:1) → campos usam `ink-400` (3.31) |
 
-## Componentes (8)
+## Direção visual
+
+A identidade não foi inventada: paleta e fontes são as **reais do cliente**
+(extraídas do CSS do site dele), e a linguagem de UI vem de referências
+pesquisadas e documentadas no
+[`DESIGN-SPEC.md`](../01-landing-captacao-juridica/docs/DESIGN-SPEC.md) do Projeto 1:
+
+- **HackerRank** — easings reais (`easeOutQuint`), alto contraste, seções alternadas;
+- **Phenomenon Studio** — cadência de durações em passos de 0,08s (`--lex-stagger: 80ms`);
+- **Referência de UI aprovada** — superfícies arejadas, cards flat com borda fina que
+  acende no hover, botões pill, **headlines em dois tons** (`SectionHeader`),
+  tipografia display fluida com `clamp`.
+
+## Componentes (9)
 
 | Componente | Destaques de acessibilidade |
 |---|---|
@@ -41,7 +54,8 @@ Decisões que os números forçaram:
 | `Input` | label sempre visível, `hint`/`error` via `aria-describedby`, erro com `aria-invalid` + `role="alert"` |
 | `Textarea` | mesmo contrato do Input |
 | `Select` | mesmo contrato do Input, seta customizada |
-| `Card` | composável: `Card.Header` / `Card.Body` / `Card.Footer` |
+| `Card` | composável: `Card.Header` / `Card.Body` / `Card.Footer`; hover com lift + borda dourada |
+| `SectionHeader` | eyebrow + headline em dois tons + lead; `as` (h1–h3) separado do visual (`size`) |
 | `Badge` | 4 áreas jurídicas + neutro, cada par de cor aprovado AA |
 | `Modal` | **focus trap manual**, Esc + clique fora, `role="dialog"` + `aria-modal`, devolve o foco ao trigger, trava scroll |
 | `Toast` | região `aria-live="polite"`, auto-dismiss, **fila** (máx. 3 visíveis) |

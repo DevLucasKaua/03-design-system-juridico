@@ -203,13 +203,85 @@ const typeScale: Array<[string, string, string]> = [
   ['--lex-text-sm', '0.8rem', 'Labels, hints, badges'],
 ];
 
+const displayScale: Array<[string, string, string]> = [
+  ['--lex-text-display-xl', 'clamp(2.25rem, 5vw, 3.75rem)', 'H1 hero (fluido)'],
+  ['--lex-text-display-lg', 'clamp(1.75rem, 3.5vw, 2.75rem)', 'H2 de seção (fluido)'],
+  ['--lex-text-display-md', 'clamp(1.25rem, 2vw, 1.5rem)', 'H3 / título de card'],
+  ['--lex-text-lead', 'clamp(1.05rem, 1.6vw, 1.375rem)', 'Subheadline'],
+];
+
 export const Tipografia: Story = {
   render: () => (
     <div style={{ maxWidth: 880, display: 'grid', gap: 8 }}>
       <p style={{ maxWidth: 640 }}>
-        Escala com razão <strong>1.25</strong> (terça maior) a partir de 1rem. Display:{' '}
-        <code>Sora</code> · Corpo: <code>Noto Sans</code> — carregadas pelo app consumidor.
+        Display: <code>Sora</code> · Corpo: <code>Noto Sans</code> — carregadas pelo app
+        consumidor. Headlines usam <strong>clamps fluidos</strong> (mobile → desktop, do
+        DESIGN-SPEC do cliente); o miolo segue a escala modular <strong>1.25</strong>.
       </p>
+      <h3 style={{ fontFamily: 'var(--lex-font-display)', marginBottom: 0 }}>
+        Display semântico (fluido)
+      </h3>
+      {displayScale.map(([token, clamp, uso]) => (
+        <div
+          key={token}
+          style={{
+            display: 'flex',
+            alignItems: 'baseline',
+            gap: 16,
+            borderBottom: '1px solid var(--lex-color-ink-100)',
+            paddingBlock: 8,
+          }}
+        >
+          <code style={{ width: 170, flexShrink: 0, fontSize: 12, color: 'var(--lex-color-ink-600)' }}>
+            {token}
+          </code>
+          <span
+            style={{
+              fontSize: `var(${token})`,
+              fontFamily: 'var(--lex-font-display)',
+              fontWeight: 700,
+              lineHeight: 1.1,
+            }}
+          >
+            Justiça ágil
+          </span>
+          <small style={{ marginLeft: 'auto', color: 'var(--lex-color-ink-600)', flexShrink: 0, textAlign: 'right' }}>
+            {uso}
+            <br />
+            <code style={{ fontSize: 10 }}>{clamp}</code>
+          </small>
+        </div>
+      ))}
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'baseline',
+          gap: 16,
+          borderBottom: '1px solid var(--lex-color-ink-100)',
+          paddingBlock: 8,
+        }}
+      >
+        <code style={{ width: 170, flexShrink: 0, fontSize: 12, color: 'var(--lex-color-ink-600)' }}>
+          --lex-text-eyebrow
+        </code>
+        <span
+          style={{
+            fontSize: 'var(--lex-text-eyebrow)',
+            fontWeight: 600,
+            letterSpacing: 'var(--lex-tracking-eyebrow)',
+            textTransform: 'uppercase',
+            color: 'var(--lex-color-brand-700)',
+          }}
+        >
+          Advocacia imobiliária · SP
+        </span>
+        <small style={{ marginLeft: 'auto', color: 'var(--lex-color-ink-600)', flexShrink: 0 }}>
+          0.8125rem · tracking 0.12em · eyebrow
+        </small>
+      </div>
+      <h3 style={{ fontFamily: 'var(--lex-font-display)', marginBottom: 0, marginTop: 16 }}>
+        Escala modular 1.25
+      </h3>
       {typeScale.map(([token, size, uso]) => (
         <div
           key={token}
@@ -232,6 +304,93 @@ export const Tipografia: Story = {
           </small>
         </div>
       ))}
+    </div>
+  ),
+};
+
+const motionTokens: Array<[string, string, string]> = [
+  ['--lex-duration-hover', '240ms', 'Hovers de botão, card, link (passo 0.24s)'],
+  ['--lex-duration-accordion', '320ms', 'Accordion / FAQ (passo 0.32s)'],
+  ['--lex-duration-reveal', '640ms', 'Scroll reveal fade-up (passo 0.64s)'],
+  ['--lex-stagger', '80ms', 'Delay incremental em cascatas (index × 80ms)'],
+];
+
+const easings: Array<[string, string, string]> = [
+  ['--lex-ease-out-quint', 'cubic-bezier(0.23, 1, 0.32, 1)', 'Reveals e entradas (HackerRank)'],
+  ['--lex-ease-out-circ', 'cubic-bezier(0.075, 0.82, 0.165, 1)', 'Entradas alternativas'],
+  ['--lex-ease-standard', 'cubic-bezier(0.4, 0, 0.2, 1)', 'Hovers utilitários'],
+];
+
+export const Movimento: Story = {
+  render: () => (
+    <div style={{ maxWidth: 880, display: 'grid', gap: 24 }}>
+      <p style={{ maxWidth: 640 }}>
+        Easings extraídos do HackerRank e cadência de durações em <strong>passos de 0,08s</strong>{' '}
+        (Phenomenon Studio). Passe o mouse sobre cada barra para sentir a curva — todas respeitam{' '}
+        <code>prefers-reduced-motion</code> nos componentes.
+      </p>
+      <section>
+        <h3 style={{ fontFamily: 'var(--lex-font-display)' }}>Easings</h3>
+        <div style={{ display: 'grid', gap: 12 }}>
+          {easings.map(([token, curve, uso]) => (
+            <div key={token} style={{ display: 'grid', gap: 4 }}>
+              <div style={{ display: 'flex', gap: 12, fontSize: 13 }}>
+                <code style={{ color: 'var(--lex-color-ink-600)' }}>{token}</code>
+                <small style={{ marginLeft: 'auto', color: 'var(--lex-color-ink-600)' }}>{uso}</small>
+              </div>
+              <div
+                style={{
+                  background: 'var(--lex-color-surface-muted)',
+                  borderRadius: 8,
+                  padding: 4,
+                }}
+              >
+                <div
+                  className="lex-motion-demo"
+                  style={{
+                    width: 48,
+                    height: 24,
+                    borderRadius: 6,
+                    background: 'var(--lex-color-brand-500)',
+                    transition: `transform 640ms var(${token})`,
+                  }}
+                />
+              </div>
+              <code style={{ fontSize: 11, color: 'var(--lex-color-ink-500)' }}>{curve}</code>
+            </div>
+          ))}
+        </div>
+        <style>{`
+          .lex-motion-demo { transform: translateX(0); }
+          div:hover > .lex-motion-demo { transform: translateX(calc(100% * 12)); }
+          @media (prefers-reduced-motion: reduce) { .lex-motion-demo { transition: none !important; } }
+        `}</style>
+      </section>
+      <section>
+        <h3 style={{ fontFamily: 'var(--lex-font-display)' }}>Durações — cadência 0,08s</h3>
+        <table style={{ borderCollapse: 'collapse', width: '100%', fontSize: 14 }}>
+          <thead>
+            <tr style={{ textAlign: 'left', borderBottom: '2px solid var(--lex-color-ink-200)' }}>
+              <th style={{ padding: 8 }}>Token</th>
+              <th style={{ padding: 8 }}>Valor</th>
+              <th style={{ padding: 8 }}>Uso</th>
+            </tr>
+          </thead>
+          <tbody>
+            {motionTokens.map(([token, value, uso]) => (
+              <tr key={token} style={{ borderBottom: '1px solid var(--lex-color-ink-100)' }}>
+                <td style={{ padding: 8 }}>
+                  <code>{token}</code>
+                </td>
+                <td style={{ padding: 8 }}>
+                  <code>{value}</code>
+                </td>
+                <td style={{ padding: 8 }}>{uso}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
     </div>
   ),
 };
