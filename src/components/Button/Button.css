@@ -1,0 +1,125 @@
+.lex-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--lex-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--lex-radius-pill);
+  font-family: var(--lex-font-body);
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color var(--lex-duration-hover) var(--lex-ease-standard),
+    color var(--lex-duration-hover) var(--lex-ease-standard),
+    box-shadow var(--lex-duration-hover) var(--lex-ease-standard),
+    transform var(--lex-duration-hover) var(--lex-ease-out-quint);
+}
+
+.lex-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--lex-shadow-focus);
+}
+
+.lex-btn:active:not(:disabled):not([aria-disabled='true']) {
+  transform: translateY(1px);
+}
+
+.lex-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.lex-btn--loading {
+  cursor: progress;
+}
+
+/* Tamanhos */
+.lex-btn--sm {
+  padding: var(--lex-space-2) var(--lex-space-4);
+  font-size: var(--lex-text-sm);
+}
+
+.lex-btn--md {
+  padding: var(--lex-space-3) var(--lex-space-6);
+  font-size: var(--lex-text-base);
+}
+
+.lex-btn--lg {
+  padding: var(--lex-space-4) var(--lex-space-8);
+  font-size: var(--lex-text-md);
+}
+
+/* Variantes — pares de cor documentados em tokens.css */
+.lex-btn--primary {
+  background-color: var(--lex-color-brand-500);
+  color: var(--lex-color-ink-900);
+  box-shadow: var(--lex-shadow-cta);
+}
+
+.lex-btn--primary:hover:not(:disabled):not([aria-disabled='true']) {
+  background-color: var(--lex-color-brand-400);
+}
+
+.lex-btn--primary:focus-visible {
+  box-shadow: var(--lex-shadow-cta), var(--lex-shadow-focus);
+}
+
+.lex-btn--secondary {
+  background-color: var(--lex-color-ink-900);
+  color: var(--lex-color-surface);
+}
+
+.lex-btn--secondary:hover:not(:disabled):not([aria-disabled='true']) {
+  background-color: var(--lex-color-ink-700);
+}
+
+.lex-btn--ghost {
+  background-color: transparent;
+  color: var(--lex-color-ink-700);
+}
+
+.lex-btn--ghost:hover:not(:disabled):not([aria-disabled='true']) {
+  background-color: var(--lex-color-surface-muted);
+  color: var(--lex-color-ink-900);
+}
+
+.lex-btn--destructive {
+  background-color: var(--lex-color-error);
+  color: var(--lex-color-surface);
+}
+
+.lex-btn--destructive:hover:not(:disabled):not([aria-disabled='true']) {
+  background-color: #a93226;
+}
+
+/* Spinner do estado loading */
+.lex-btn__spinner {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: var(--lex-radius-pill);
+  animation: lex-btn-spin 0.7s linear infinite;
+}
+
+.lex-btn--loading .lex-btn__label {
+  opacity: 0.7;
+}
+
+@keyframes lex-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lex-btn {
+    transition: none;
+  }
+
+  .lex-btn__spinner {
+    animation-duration: 1.6s;
+  }
+}

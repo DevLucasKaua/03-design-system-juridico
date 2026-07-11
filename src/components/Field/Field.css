@@ -1,0 +1,111 @@
+.lex-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lex-space-2);
+  font-family: var(--lex-font-body);
+  max-inline-size: 100%;
+}
+
+.lex-field__label {
+  font-size: var(--lex-text-sm);
+  font-weight: 600;
+  color: var(--lex-color-ink-800);
+}
+
+.lex-field__required {
+  color: var(--lex-color-error);
+}
+
+.lex-field__control {
+  position: relative;
+  display: flex;
+}
+
+/* Borda em ink-400 (3.31:1) — ink-300 reprova o mínimo de 3:1 para UI */
+.lex-field__input {
+  width: 100%;
+  padding: var(--lex-space-3) var(--lex-space-4);
+  font-family: inherit;
+  font-size: var(--lex-text-base);
+  line-height: var(--lex-leading-snug);
+  color: var(--lex-color-ink-900);
+  background-color: var(--lex-color-surface);
+  border: 1px solid var(--lex-color-ink-400);
+  border-radius: var(--lex-radius-field);
+  transition:
+    border-color var(--lex-duration-hover) var(--lex-ease-standard),
+    box-shadow var(--lex-duration-hover) var(--lex-ease-standard);
+}
+
+.lex-field__input::placeholder {
+  color: var(--lex-color-ink-500);
+}
+
+.lex-field__input:focus-visible {
+  outline: none;
+  border-color: var(--lex-color-brand-600);
+  box-shadow: var(--lex-shadow-focus);
+}
+
+.lex-field__input--error {
+  border-color: var(--lex-color-error);
+}
+
+.lex-field__input--error:focus-visible {
+  border-color: var(--lex-color-error);
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.35);
+}
+
+.lex-field__input:disabled {
+  background-color: var(--lex-color-surface-muted);
+  color: var(--lex-color-ink-600);
+  cursor: not-allowed;
+}
+
+.lex-field__icon {
+  position: absolute;
+  inset-inline-start: var(--lex-space-4);
+  inset-block-start: 50%;
+  translate: 0 -50%;
+  display: inline-flex;
+  color: var(--lex-color-ink-500);
+  pointer-events: none;
+}
+
+.lex-field__input--with-icon {
+  padding-inline-start: var(--lex-space-12);
+}
+
+.lex-field__hint {
+  margin: 0;
+  font-size: var(--lex-text-sm);
+  color: var(--lex-color-ink-600);
+}
+
+.lex-field__error {
+  margin: 0;
+  font-size: var(--lex-text-sm);
+  font-weight: 500;
+  color: var(--lex-color-error);
+}
+
+/* Textarea herda o visual do input */
+.lex-field__input--textarea {
+  resize: vertical;
+  min-block-size: 6rem;
+}
+
+/* Select: seta customizada, aparência nativa removida */
+.lex-field__input--select {
+  appearance: none;
+  padding-inline-end: var(--lex-space-12);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M4 6l4 4 4-4' stroke='%2345444d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--lex-space-4) center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lex-field__input {
+    transition: none;
+  }
+}

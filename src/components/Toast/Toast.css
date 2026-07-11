@@ -1,0 +1,93 @@
+.lex-toast-viewport {
+  position: fixed;
+  inset-block-end: var(--lex-space-6);
+  inset-inline-end: var(--lex-space-6);
+  z-index: var(--lex-z-toast);
+  display: flex;
+  flex-direction: column;
+  gap: var(--lex-space-3);
+  max-width: min(24rem, calc(100vw - var(--lex-space-8)));
+}
+
+/* Fundo grafite: branco (18.48:1) e ink-200 (13.17:1) aprovados AA */
+.lex-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--lex-space-3);
+  padding: var(--lex-space-4);
+  background-color: var(--lex-color-ink-900);
+  color: var(--lex-color-surface);
+  border-inline-start: 4px solid var(--lex-color-ink-400);
+  border-radius: var(--lex-radius-field);
+  box-shadow: var(--lex-shadow-card-hover);
+  font-family: var(--lex-font-body);
+  animation: lex-toast-in var(--lex-duration-hover) var(--lex-ease-out-quint);
+}
+
+.lex-toast--success {
+  border-inline-start-color: #4ade80;
+}
+
+.lex-toast--error {
+  border-inline-start-color: #f87171;
+}
+
+.lex-toast--info {
+  border-inline-start-color: var(--lex-color-brand-300);
+}
+
+.lex-toast__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.lex-toast__title {
+  margin: 0;
+  font-size: var(--lex-text-base);
+  font-weight: 600;
+  line-height: var(--lex-leading-snug);
+}
+
+.lex-toast__description {
+  margin: var(--lex-space-1) 0 0;
+  font-size: var(--lex-text-sm);
+  line-height: var(--lex-leading-snug);
+  color: var(--lex-color-ink-200);
+}
+
+.lex-toast__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--lex-radius-pill);
+  background: transparent;
+  color: var(--lex-color-ink-200);
+  cursor: pointer;
+}
+
+.lex-toast__close:hover {
+  color: var(--lex-color-surface);
+  background-color: var(--lex-color-ink-700);
+}
+
+.lex-toast__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(239, 208, 138, 0.6);
+}
+
+@keyframes lex-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lex-toast {
+    animation: none;
+  }
+}

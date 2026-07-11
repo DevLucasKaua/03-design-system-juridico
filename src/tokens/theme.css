@@ -1,0 +1,72 @@
+/* ------------------------------------------------------------------------ *
+ * Lex UI → Tailwind v4 (CSS-first)
+ *
+ * Mapeia os tokens --lex-* para os namespaces do @theme, gerando utilitários
+ * como bg-brand-500, text-ink-600, rounded-card, shadow-cta, font-display.
+ *
+ * Uso no app consumidor (ex.: Projeto 1, Next.js + Tailwind v4):
+ *   @import 'tailwindcss';
+ *   @import '@lucas/lex-ui/tokens.css';
+ *   @import '@lucas/lex-ui/theme.css';
+ *
+ * Para Tailwind v3 use o preset JS: '@lucas/lex-ui/tailwind-preset'.
+ * ------------------------------------------------------------------------ */
+
+@theme inline {
+  --color-brand-50: var(--lex-color-brand-50);
+  --color-brand-100: var(--lex-color-brand-100);
+  --color-brand-200: var(--lex-color-brand-200);
+  --color-brand-300: var(--lex-color-brand-300);
+  --color-brand-400: var(--lex-color-brand-400);
+  --color-brand-500: var(--lex-color-brand-500);
+  --color-brand-600: var(--lex-color-brand-600);
+  --color-brand-700: var(--lex-color-brand-700);
+  --color-brand-800: var(--lex-color-brand-800);
+  --color-brand-900: var(--lex-color-brand-900);
+
+  --color-ink-50: var(--lex-color-ink-50);
+  --color-ink-100: var(--lex-color-ink-100);
+  --color-ink-200: var(--lex-color-ink-200);
+  --color-ink-300: var(--lex-color-ink-300);
+  --color-ink-400: var(--lex-color-ink-400);
+  --color-ink-500: var(--lex-color-ink-500);
+  --color-ink-600: var(--lex-color-ink-600);
+  --color-ink-700: var(--lex-color-ink-700);
+  --color-ink-800: var(--lex-color-ink-800);
+  --color-ink-900: var(--lex-color-ink-900);
+  --color-ink-950: var(--lex-color-ink-950);
+
+  --color-surface: var(--lex-color-surface);
+  --color-surface-soft: var(--lex-color-surface-soft);
+  --color-surface-muted: var(--lex-color-surface-muted);
+
+  --color-success: var(--lex-color-success);
+  --color-success-soft: var(--lex-color-success-soft);
+  --color-error: var(--lex-color-error);
+  --color-error-soft: var(--lex-color-error-soft);
+
+  --font-display: var(--lex-font-display);
+  --font-body: var(--lex-font-body);
+
+  --text-sm: var(--lex-text-sm);
+  --text-base: var(--lex-text-base);
+  --text-md: var(--lex-text-md);
+  --text-lg: var(--lex-text-lg);
+  --text-xl: var(--lex-text-xl);
+  --text-2xl: var(--lex-text-2xl);
+  --text-3xl: var(--lex-text-3xl);
+
+  --radius-sm: var(--lex-radius-sm);
+  --radius-field: var(--lex-radius-field);
+  --radius-card: var(--lex-radius-card);
+  --radius-lg: var(--lex-radius-lg);
+  --radius-pill: var(--lex-radius-pill);
+
+  --shadow-card: var(--lex-shadow-card);
+  --shadow-card-hover: var(--lex-shadow-card-hover);
+  --shadow-cta: var(--lex-shadow-cta);
+  --shadow-focus: var(--lex-shadow-focus);
+
+  --ease-out-quint: var(--lex-ease-out-quint);
+  --ease-standard: var(--lex-ease-standard);
+}

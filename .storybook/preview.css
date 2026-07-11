@@ -1,0 +1,4 @@
+body {
+  font-family: var(--lex-font-body);
+  color: var(--lex-color-ink-900);
+}

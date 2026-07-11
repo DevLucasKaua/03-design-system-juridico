@@ -1,0 +1,38 @@
+.lex-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--lex-space-1);
+  padding: var(--lex-space-1) var(--lex-space-3);
+  border-radius: var(--lex-radius-pill);
+  font-family: var(--lex-font-body);
+  font-size: var(--lex-text-sm);
+  font-weight: 600;
+  line-height: var(--lex-leading-snug);
+  white-space: nowrap;
+}
+
+/* Pares texto/fundo validados em tokens.css (todos ≥ 4.5:1) */
+.lex-badge--trabalhista {
+  color: var(--lex-color-area-trabalhista-text);
+  background-color: var(--lex-color-area-trabalhista-bg);
+}
+
+.lex-badge--familia {
+  color: var(--lex-color-area-familia-text);
+  background-color: var(--lex-color-area-familia-bg);
+}
+
+.lex-badge--consumidor {
+  color: var(--lex-color-area-consumidor-text);
+  background-color: var(--lex-color-area-consumidor-bg);
+}
+
+.lex-badge--empresarial {
+  color: var(--lex-color-area-empresarial-text);
+  background-color: var(--lex-color-area-empresarial-bg);
+}
+
+.lex-badge--neutro {
+  color: var(--lex-color-ink-700);
+  background-color: var(--lex-color-ink-100);
+}

@@ -1,0 +1,87 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Introdução/Como usar" />
+
+# Lex UI — Como usar
+
+Design system para **marketing jurídico**: landing pages de captação, formulários de
+qualificação e produtos de escritórios de advocacia. É a fonte da verdade visual dos
+projetos deste portfólio — o Projeto 1 (landing de captação) e o Projeto 4 (formulário
+multi-step) consomem estes componentes e tokens.
+
+## Filosofia
+
+1. **Tokens antes de componentes.** Toda cor, espaço, raio e sombra vive em
+   `tokens.css` como CSS variable `--lex-*`. Componentes nunca usam valor mágico.
+2. **Advogado vende confiança, não hype.** Grafite quente como tinta, dourado âmbar
+   apenas onde há ação (CTA, foco). O dourado é escasso de propósito.
+3. **Acessibilidade é contrato, não feature.** Todo par de cor é validado contra
+   WCAG AA antes de virar token (veja *Fundações → Contraste WCAG AA* — os ratios
+   são calculados ao vivo). Focus trap, `aria-live`, `aria-describedby` e retorno de
+   foco fazem parte da API dos componentes, não são opcionais.
+
+## Instalação
+
+```bash
+npm install github:lucas/lex-ui
+```
+
+```tsx
+import { Button, Input, Modal, ToastProvider } from '@lucas/lex-ui';
+import '@lucas/lex-ui/styles.css'; // tokens + estilos dos componentes
+```
+
+## Os dois mundos: CSS puro e Tailwind
+
+Os tokens são CSS variables puras — funcionam em qualquer stack:
+
+```css
+.minha-secao {
+  background: var(--lex-color-surface-soft);
+  padding: var(--lex-space-12);
+  border-radius: var(--lex-radius-card);
+}
+```
+
+**Tailwind v4** (CSS-first, como no Projeto 1):
+
+```css
+@import 'tailwindcss';
+@import '@lucas/lex-ui/tokens.css';
+@import '@lucas/lex-ui/theme.css';
+/* agora existem bg-brand-500, text-ink-600, rounded-card, shadow-cta… */
+```
+
+**Tailwind v3** (config JS):
+
+```ts
+import lexPreset from '@lucas/lex-ui/tailwind-preset';
+
+export default {
+  presets: [lexPreset],
+  content: ['./src/**/*.{ts,tsx}'],
+};
+```
+
+## Contrato de acessibilidade dos formulários
+
+`Input`, `Textarea` e `Select` compartilham o mesmo contrato:
+
+- **Label sempre visível** — placeholder nunca substitui label;
+- `hint` e `error` ligados ao controle via `aria-describedby`;
+- erro seta `aria-invalid` e é anunciado com `role="alert"`;
+- o anel de foco usa `brand-600` (3.79:1 sobre branco — `brand-500` reprova o
+  mínimo de 3:1 e por isso não é usado).
+
+O `Button` em `loading` usa `aria-disabled` + `aria-busy` em vez de `disabled`,
+para o foco do leitor de tela não se perder durante o envio do formulário.
+
+O `Modal` prende o foco (Tab cicla), fecha com Esc e clique fora, e **devolve o
+foco ao elemento que o abriu** — teste com o teclado na story.
+
+## Regras de uso
+
+- Um único `Button` primário (dourado) por bloco de conteúdo;
+- Texto sobre branco: `ink-900` (padrão), `ink-600` (secundário), `ink-500` (mínimo);
+- `brand-600` só como texto grande ou borda — reprova AA como texto normal;
+- Badges de área jurídica têm pares próprios já aprovados — não recolorir.
