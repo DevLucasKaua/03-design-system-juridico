@@ -21,6 +21,10 @@ export default defineConfig({
       external: ['react', 'react-dom', 'react/jsx-runtime', 'react-dom/client'],
       output: {
         assetFileNames: 'lex-ui.[ext]',
+        // Componentes interativos (Toast usa createContext no escopo do
+        // módulo) — sem a diretiva, React Server Components do Next
+        // quebram ao avaliar o bundle ("createContext is not a function").
+        banner: '"use client";',
       },
     },
     cssCodeSplit: false,
