@@ -10,15 +10,18 @@
   overflow: hidden;
 }
 
+/* Hover de card (DESIGN-SPEC §2.2): lift -6px + borda ink-100→brand-500 */
 .lex-card--interactive {
   transition:
     box-shadow var(--lex-duration-hover) var(--lex-ease-standard),
+    border-color var(--lex-duration-hover) var(--lex-ease-standard),
     transform var(--lex-duration-hover) var(--lex-ease-out-quint);
 }
 
 .lex-card--interactive:hover {
   box-shadow: var(--lex-shadow-card-hover);
-  transform: translateY(-2px);
+  border-color: var(--lex-color-brand-500);
+  transform: translateY(-6px);
 }
 
 .lex-card__header {

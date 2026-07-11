@@ -55,6 +55,16 @@
   --text-xl: var(--lex-text-xl);
   --text-2xl: var(--lex-text-2xl);
   --text-3xl: var(--lex-text-3xl);
+  --text-display-xl: var(--lex-text-display-xl);
+  --text-display-lg: var(--lex-text-display-lg);
+  --text-display-md: var(--lex-text-display-md);
+  --text-lead: var(--lex-text-lead);
+  --text-eyebrow: var(--lex-text-eyebrow);
+
+  --tracking-display-xl: var(--lex-tracking-display-xl);
+  --tracking-display-lg: var(--lex-tracking-display-lg);
+  --tracking-display-md: var(--lex-tracking-display-md);
+  --tracking-eyebrow: var(--lex-tracking-eyebrow);
 
   --radius-sm: var(--lex-radius-sm);
   --radius-field: var(--lex-radius-field);
@@ -68,5 +78,6 @@
   --shadow-focus: var(--lex-shadow-focus);
 
   --ease-out-quint: var(--lex-ease-out-quint);
+  --ease-out-circ: var(--lex-ease-out-circ);
   --ease-standard: var(--lex-ease-standard);
 }

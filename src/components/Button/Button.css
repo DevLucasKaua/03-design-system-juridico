@@ -57,8 +57,10 @@
   box-shadow: var(--lex-shadow-cta);
 }
 
+/* Hover do CTA (DESIGN-SPEC §2.2): escurece p/ brand-600 (4.87:1) + lift */
 .lex-btn--primary:hover:not(:disabled):not([aria-disabled='true']) {
-  background-color: var(--lex-color-brand-400);
+  background-color: var(--lex-color-brand-600);
+  transform: translateY(-2px);
 }
 
 .lex-btn--primary:focus-visible {

@@ -1,0 +1,93 @@
+.lex-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--lex-space-4);
+  font-family: var(--lex-font-body);
+  max-inline-size: 100%;
+}
+
+.lex-section-header--start {
+  align-items: flex-start;
+  text-align: start;
+}
+
+.lex-section-header--center {
+  align-items: center;
+  text-align: center;
+}
+
+.lex-section-header__eyebrow {
+  margin: 0;
+  font-size: var(--lex-text-eyebrow);
+  font-weight: 600;
+  letter-spacing: var(--lex-tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+.lex-section-header__title {
+  margin: 0;
+  font-family: var(--lex-font-display);
+  font-weight: 700;
+  line-height: var(--lex-leading-tight);
+  text-wrap: balance;
+}
+
+.lex-section-header__title--xl {
+  font-size: var(--lex-text-display-xl);
+  letter-spacing: var(--lex-tracking-display-xl);
+  line-height: 1.05;
+}
+
+.lex-section-header__title--lg {
+  font-size: var(--lex-text-display-lg);
+  letter-spacing: var(--lex-tracking-display-lg);
+  line-height: 1.1;
+}
+
+.lex-section-header__title--md {
+  font-size: var(--lex-text-display-md);
+  letter-spacing: var(--lex-tracking-display-md);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.lex-section-header__subtitle {
+  margin: 0;
+  font-size: var(--lex-text-lead);
+  line-height: var(--lex-leading-normal);
+  max-inline-size: 60ch;
+}
+
+/* Tom claro — pares AA: brand-700 (5.62), ink-900, ink-500 (5.81), ink-600 */
+.lex-section-header--light .lex-section-header__eyebrow {
+  color: var(--lex-color-brand-700);
+}
+
+.lex-section-header--light .lex-section-header__title {
+  color: var(--lex-color-ink-900);
+}
+
+.lex-section-header--light .lex-section-header__muted {
+  color: var(--lex-color-ink-500);
+}
+
+.lex-section-header--light .lex-section-header__subtitle {
+  color: var(--lex-color-ink-600);
+}
+
+/* Tom escuro (sobre ink-900) — brand-300 (9.86), branco, ink-300 (9.33) */
+.lex-section-header--dark .lex-section-header__eyebrow {
+  color: var(--lex-color-brand-300);
+}
+
+.lex-section-header--dark .lex-section-header__title {
+  color: var(--lex-color-surface);
+}
+
+.lex-section-header--dark .lex-section-header__muted {
+  color: var(--lex-color-ink-300);
+}
+
+.lex-section-header--dark .lex-section-header__subtitle {
+  color: var(--lex-color-ink-200);
+}
