@@ -48,13 +48,10 @@
   --font-display: var(--lex-font-display);
   --font-body: var(--lex-font-body);
 
-  --text-sm: var(--lex-text-sm);
-  --text-base: var(--lex-text-base);
-  --text-md: var(--lex-text-md);
-  --text-lg: var(--lex-text-lg);
-  --text-xl: var(--lex-text-xl);
-  --text-2xl: var(--lex-text-2xl);
-  --text-3xl: var(--lex-text-3xl);
+  /* Só nomes ADITIVOS: nunca sobrescrever a escala padrão do Tailwind
+     (text-sm, text-lg, rounded-lg…) — apps que já usam esses utilitários
+     mudariam de tamanho silenciosamente. A escala modular --lex-text-*
+     continua disponível como CSS variable pura. */
   --text-display-xl: var(--lex-text-display-xl);
   --text-display-lg: var(--lex-text-display-lg);
   --text-display-md: var(--lex-text-display-md);
@@ -66,10 +63,10 @@
   --tracking-display-md: var(--lex-tracking-display-md);
   --tracking-eyebrow: var(--lex-tracking-eyebrow);
 
-  --radius-sm: var(--lex-radius-sm);
   --radius-field: var(--lex-radius-field);
   --radius-card: var(--lex-radius-card);
-  --radius-lg: var(--lex-radius-lg);
+  /* "lg2" evita colidir com o rounded-lg padrão do Tailwind (0.5rem) */
+  --radius-lg2: var(--lex-radius-lg);
   --radius-pill: var(--lex-radius-pill);
 
   --shadow-card: var(--lex-shadow-card);
