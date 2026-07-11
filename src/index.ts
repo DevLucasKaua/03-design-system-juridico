@@ -18,6 +18,13 @@ export type { CardProps } from './components/Card/Card';
 export { Badge } from './components/Badge/Badge';
 export type { BadgeProps, BadgeVariant } from './components/Badge/Badge';
 
+export { SectionHeader } from './components/SectionHeader/SectionHeader';
+export type {
+  SectionHeaderProps,
+  SectionHeaderSize,
+  SectionHeaderTone,
+} from './components/SectionHeader/SectionHeader';
+
 export { Modal } from './components/Modal/Modal';
 export type { ModalProps, ModalSize } from './components/Modal/Modal';
 

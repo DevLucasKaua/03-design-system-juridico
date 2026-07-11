@@ -15,8 +15,11 @@
  *   - surface sobre ink-900 (seções escuras)      18.48
  *   - ink-200 sobre ink-900 (secundário no dark)  13.17
  *   - ink-900 sobre brand-500 (CTA primário)       6.60
- *   - ink-900 sobre brand-400 (CTA hover)          8.04
- *   - brand-700 sobre surface (links)              5.62
+ *   - ink-900 sobre brand-600 (CTA hover)          4.87
+ *   - brand-700 sobre surface (links, eyebrow)     5.62
+ *   - ink-500 sobre surface (headline muted)       5.81
+ *   - ink-300 sobre ink-900 (headline muted dark)  9.33
+ *   - brand-300 sobre ink-900 (eyebrow no dark)    9.86
  *   - brand-200 sobre ink-900 (accent no dark)    12.38
  *   - branco sobre error (botão destructive)       5.44
  *   - error sobre surface                          5.44
@@ -93,9 +96,23 @@
   --lex-text-2xl: 2.4414rem; /* 39px   */
   --lex-text-3xl: 3.0518rem; /* 48.8px */
 
+  /* --- Tipografia semântica de display (clamps do DESIGN-SPEC §1.2) ---
+         Headlines fluidas mobile→desktop; a "headline em dois tons"
+         (parte escura + parte muted) usa o componente SectionHeader --- */
+  --lex-text-display-xl: clamp(2.25rem, 5vw, 3.75rem); /* H1 hero        */
+  --lex-text-display-lg: clamp(1.75rem, 3.5vw, 2.75rem); /* H2 de seção  */
+  --lex-text-display-md: clamp(1.25rem, 2vw, 1.5rem); /* H3 / card       */
+  --lex-text-lead: clamp(1.05rem, 1.6vw, 1.375rem); /* subheadline       */
+  --lex-text-eyebrow: 0.8125rem; /* rótulo uppercase acima do H2         */
+
   --lex-leading-tight: 1.15;
   --lex-leading-snug: 1.35;
   --lex-leading-normal: 1.6;
+
+  --lex-tracking-display-xl: -0.02em;
+  --lex-tracking-display-lg: -0.015em;
+  --lex-tracking-display-md: -0.01em;
+  --lex-tracking-eyebrow: 0.12em;
 
   /* --- Espaçamento — base 4px (índice = múltiplos de 4) --- */
   --lex-space-1: 0.25rem; /* 4px  */
@@ -121,11 +138,14 @@
   /* Anel de foco em brand-600 (3.79:1 sobre branco — brand-500 reprova) */
   --lex-shadow-focus: 0 0 0 3px rgba(180, 118, 11, 0.45);
 
-  /* --- Movimento --- */
+  /* --- Movimento — easings do HackerRank, cadência Phenomenon (0,08s) --- */
   --lex-ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --lex-ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
   --lex-ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
-  --lex-duration-hover: 240ms;
-  --lex-duration-reveal: 640ms;
+  --lex-duration-hover: 240ms; /* passo 0.24s */
+  --lex-duration-accordion: 320ms; /* passo 0.32s */
+  --lex-duration-reveal: 640ms; /* passo 0.64s */
+  --lex-stagger: 80ms; /* unidade base p/ cascatas (delay = index × stagger) */
 
   /* --- Camadas --- */
   --lex-z-modal: 50;

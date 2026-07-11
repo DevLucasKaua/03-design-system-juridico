@@ -47,6 +47,17 @@ const lexPreset = {
         xl: 'var(--lex-text-xl)',
         '2xl': 'var(--lex-text-2xl)',
         '3xl': 'var(--lex-text-3xl)',
+        'display-xl': 'var(--lex-text-display-xl)',
+        'display-lg': 'var(--lex-text-display-lg)',
+        'display-md': 'var(--lex-text-display-md)',
+        lead: 'var(--lex-text-lead)',
+        eyebrow: 'var(--lex-text-eyebrow)',
+      },
+      letterSpacing: {
+        'display-xl': 'var(--lex-tracking-display-xl)',
+        'display-lg': 'var(--lex-tracking-display-lg)',
+        'display-md': 'var(--lex-tracking-display-md)',
+        eyebrow: 'var(--lex-tracking-eyebrow)',
       },
       borderRadius: {
         sm: 'var(--lex-radius-sm)',
@@ -63,10 +74,12 @@ const lexPreset = {
       },
       transitionTimingFunction: {
         'out-quint': 'var(--lex-ease-out-quint)',
+        'out-circ': 'var(--lex-ease-out-circ)',
         standard: 'var(--lex-ease-standard)',
       },
       transitionDuration: {
         hover: '240ms',
+        accordion: '320ms',
         reveal: '640ms',
       },
     },

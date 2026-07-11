@@ -15,6 +15,13 @@ multi-step) consomem estes componentes e tokens.
    `tokens.css` como CSS variable `--lex-*`. Componentes nunca usam valor mágico.
 2. **Advogado vende confiança, não hype.** Grafite quente como tinta, dourado âmbar
    apenas onde há ação (CTA, foco). O dourado é escasso de propósito.
+3. **Direção visual pesquisada, não inventada.** A paleta e as fontes (Sora + Noto
+   Sans) são as **reais do cliente** (extraídas do CSS do site dele); os easings vêm
+   do HackerRank (`easeOutQuint`), a cadência de durações em passos de 0,08s do
+   Phenomenon Studio, e a linguagem de layout — superfícies arejadas, cards com
+   borda fina, **headlines em dois tons** (componente `SectionHeader`), botões pill,
+   seções escuras de contraste — da referência de UI aprovada. Tudo documentado no
+   `DESIGN-SPEC.md` do Projeto 1.
 3. **Acessibilidade é contrato, não feature.** Todo par de cor é validado contra
    WCAG AA antes de virar token (veja *Fundações → Contraste WCAG AA* — os ratios
    são calculados ao vivo). Focus trap, `aria-live`, `aria-describedby` e retorno de
